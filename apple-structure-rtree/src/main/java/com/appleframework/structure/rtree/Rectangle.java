@@ -25,72 +25,85 @@ package com.appleframework.structure.rtree;
  */
 public class Rectangle {
 
-  /**
-   * use primitives instead of arrays for the coordinates of the rectangle,
-   * to reduce memory requirements.
-   */
-  public double minX, minY, maxX, maxY;
+	/**
+	 * use primitives instead of arrays for the coordinates of the rectangle, to
+	 * reduce memory requirements.
+	 */
+	public double minX, minY, maxX, maxY;
 
-  public Rectangle() {
-    minX = Float.MAX_VALUE;
-    minY = Float.MAX_VALUE;
-    maxX = -Float.MAX_VALUE;
-    maxY = -Float.MAX_VALUE;
-  }
+	public Rectangle() {
+		minX = Float.MAX_VALUE;
+		minY = Float.MAX_VALUE;
+		maxX = -Float.MAX_VALUE;
+		maxY = -Float.MAX_VALUE;
+	}
 
-  /**
-   * Constructor.
-   *
-   * @param x1 coordinate of any corner of the rectangle
-   * @param y1 (see x1)
-   * @param x2 coordinate of the opposite corner
-   * @param y2 (see x2)
-   */
-  public Rectangle(double x1, double y1, double x2, double y2) {
-    set(x1, y1, x2, y2);
-  }
+  	/**
+  	 * Constructor.
+  	 *
+  	 * @param x1 coordinate of any corner of the rectangle
+  	 * @param y1 (see x1)
+  	 * @param x2 coordinate of the opposite corner
+  	 * @param y2 (see x2)
+  	 */
+  	public Rectangle(double x1, double y1, double x2, double y2) {
+  		set(x1, y1, x2, y2);
+  	}
+  
+  	/**
+  	 * Constructor.
+  	 *
+  	 * @param x1 coordinate of any corner of the rectangle
+  	 * @param y1 (see x1)
+  	 * @param x2 coordinate of the opposite corner
+  	 * @param y2 (see x2)
+  	 */
+	public Rectangle(double[] xy) {
+		double x1 = xy[0], y1 = xy[1], x2 = xy[2], y2 = xy[3];
+		set(x1, y1, x2, y2);
+	}
 
- /**
-   * Sets the size of the rectangle.
-   *
-   * @param x1 coordinate of any corner of the rectangle
-   * @param y1 (see x1)
-   * @param x2 coordinate of the opposite corner
-   * @param y2 (see x2)
-   */
-  public void set(double x1, double y1, double x2, double y2) {
-    minX = Math.min(x1, x2);
-    maxX = Math.max(x1, x2);
-    minY = Math.min(y1, y2);
-    maxY = Math.max(y1, y2);
-  }
+	/**
+	 * Sets the size of the rectangle.
+	 *
+	 * @param x1 coordinate of any corner of the rectangle
+	 * @param y1 (see x1)
+	 * @param x2 coordinate of the opposite corner
+	 * @param y2 (see x2)
+	 */
+	public void set(double x1, double y1, double x2, double y2) {
+		minX = Math.min(x1, x2);
+		maxX = Math.max(x1, x2);
+		minY = Math.min(y1, y2);
+		maxY = Math.max(y1, y2);
+	}
 
-  /**
-   * Sets the size of this rectangle to equal the passed rectangle.
-   */
-  public void set(Rectangle r) {
-    minX = r.minX;
-    minY = r.minY;
-    maxX = r.maxX;
-    maxY = r.maxY;
-  }
+	/**
+	 * Sets the size of this rectangle to equal the passed rectangle.
+	 */
+	public void set(Rectangle r) {
+		minX = r.minX;
+		minY = r.minY;
+		maxX = r.maxX;
+		maxY = r.maxY;
+	}
 
-  /**
-   * Make a copy of this rectangle
-   *
-   * @return copy of this rectangle
-   */
-  public Rectangle copy() {
-    return new Rectangle(minX, minY, maxX, maxY);
-  }
+	/**
+	 * Make a copy of this rectangle
+	 *
+	 * @return copy of this rectangle
+	 */
+	public Rectangle copy() {
+		return new Rectangle(minX, minY, maxX, maxY);
+	}
 
-  /**
-   * Determine whether an edge of this rectangle overlies the equivalent
-   * edge of the passed rectangle
-   */
-  public boolean edgeOverlaps(Rectangle r) {
-    return minX == r.minX || maxX == r.maxX || minY == r.minY || maxY == r.maxY;
-  }
+	/**
+	 * Determine whether an edge of this rectangle overlies the equivalent edge
+	 * of the passed rectangle
+	 */
+	public boolean edgeOverlaps(Rectangle r) {
+		return minX == r.minX || maxX == r.maxX || minY == r.minY || maxY == r.maxY;
+	}
 
   /**
    * Determine whether this rectangle intersects the passed rectangle

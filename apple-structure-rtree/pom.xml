@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.appleframework.structure</groupId>
 		<artifactId>apple-structure</artifactId>
-		<version>0.0.2.RELEASE</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>apple-structure-rtree</artifactId>
 	<name>apple-structure-rtree</name>
