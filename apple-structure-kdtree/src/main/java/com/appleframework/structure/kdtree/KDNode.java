@@ -5,8 +5,9 @@ import java.util.List;
 
 // K-D Tree node class
 
-@SuppressWarnings("serial")
 public class KDNode<T> implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	// these are seen by KDTree
 	protected HPoint k;

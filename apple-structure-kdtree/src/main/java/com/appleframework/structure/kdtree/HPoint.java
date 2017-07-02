@@ -4,8 +4,9 @@ package com.appleframework.structure.kdtree;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class HPoint implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
 	protected double[] coord;
 

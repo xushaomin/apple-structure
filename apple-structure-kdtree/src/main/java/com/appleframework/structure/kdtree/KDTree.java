@@ -42,10 +42,11 @@ import java.util.Stack;
 * @version     %I%, %G%
 * @since JDK1.2 
 */
-@SuppressWarnings("serial")
 public class KDTree<T> implements Serializable {
-	
-    // number of milliseconds
+
+	private static final long serialVersionUID = 1L;
+
+	// number of milliseconds
     final long m_timeout;
     
     // K = number of dimensions
